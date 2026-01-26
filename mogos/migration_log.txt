@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+  File "/Users/mac/Desktop/der 3/mogos/manage.py", line 22, in <module>
+    main()
+  File "/Users/mac/Desktop/der 3/mogos/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/django/core/management/__init__.py", line 401, in execute_from_command_line
+    utility.execute()
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/django/core/management/__init__.py", line 395, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/django/core/management/base.py", line 330, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/django/core/management/base.py", line 371, in execute
+    output = self.handle(*args, **options)
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/django/core/management/commands/showmigrations.py", line 52, in handle
+    return self.show_list(connection, options['app_label'])
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/django/core/management/commands/showmigrations.py", line 71, in show_list
+    loader = MigrationLoader(connection, ignore_no_migrations=True)
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/django/db/migrations/loader.py", line 53, in __init__
+    self.build_graph()
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/django/db/migrations/loader.py", line 216, in build_graph
+    self.applied_migrations = recorder.applied_migrations()
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/django/db/migrations/recorder.py", line 77, in applied_migrations
+    if self.has_table():
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/django/db/migrations/recorder.py", line 56, in has_table
+    tables = self.connection.introspection.table_names(cursor)
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/introspection.py", line 48, in table_names
+    return get_names(cursor)
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/introspection.py", line 43, in get_names
+    return sorted(ti.name for ti in self.get_table_list(cursor)
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/djongo/introspection.py", line 49, in get_table_list
+    for c in cursor.db_conn.list_collection_names()
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/database.py", line 1241, in list_collection_names
+    return self._list_collection_names(session, filter, comment, **kwargs)
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/database.py", line 1206, in _list_collection_names
+    result["name"] for result in self._list_collections_helper(session=session, **kwargs)
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/database.py", line 1144, in _list_collections_helper
+    return self._client._retryable_read(
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/mongo_client.py", line 2048, in _retryable_read
+    return self._retry_internal(
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/mongo_client.py", line 2003, in _retry_internal
+    return _ClientConnectionRetryable(
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/mongo_client.py", line 2763, in run
+    return self._read() if self._is_read else self._write()
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/mongo_client.py", line 2908, in _read
+    self._server = self._get_server()
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/mongo_client.py", line 2856, in _get_server
+    return self._client._select_server(
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/mongo_client.py", line 1833, in _select_server
+    server = topology.select_server(
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/topology.py", line 428, in select_server
+    server = self._select_server(
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/topology.py", line 402, in _select_server
+    servers = self.select_servers(
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/topology.py", line 298, in select_servers
+    server_descriptions = self._select_servers_loop(
+  File "/Users/mac/Library/Python/3.9/lib/python/site-packages/pymongo/synchronous/topology.py", line 359, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: SSL handshake failed: ac-w2ekmx0-shard-00-00.eopen79.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1129) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: ac-w2ekmx0-shard-00-01.eopen79.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1129) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: ac-w2ekmx0-shard-00-02.eopen79.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1129) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 696cc3832363e09ae89b9700, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-w2ekmx0-shard-00-00.eopen79.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: ac-w2ekmx0-shard-00-00.eopen79.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1129) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-w2ekmx0-shard-00-01.eopen79.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: ac-w2ekmx0-shard-00-01.eopen79.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1129) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-w2ekmx0-shard-00-02.eopen79.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: ac-w2ekmx0-shard-00-02.eopen79.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1129) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
