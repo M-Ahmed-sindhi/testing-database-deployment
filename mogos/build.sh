@@ -2,5 +2,7 @@
 set -o errexit
 
 pip install -r requirements.txt
-python to_do_project/manage.py collectstatic --noinput
-python to_do_project/manage.py migrate
+python manage.py collectstatic --noinput
+python manage.py migrate
+# In build.sh or as a build step
+poetry export -f requirements.txt --output requirements.txt --without-hashes
