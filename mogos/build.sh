@@ -5,4 +5,3 @@ pip install -r requirements.txt
 python manage.py collectstatic --noinput
 python manage.py migrate
 # In build.sh or as a build step
-poetry export -f requirements.txt --output requirements.txt --without-hashes
