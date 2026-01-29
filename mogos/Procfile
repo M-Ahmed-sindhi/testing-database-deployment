@@ -1,0 +1,1 @@
+web: gunicorn mogos.wsgi --log-file -

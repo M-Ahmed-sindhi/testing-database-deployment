@@ -80,12 +80,19 @@ WSGI_APPLICATION = "mogos.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+from django.core.exceptions import ImproperlyConfigured
+
+MONGODB_URI = os.environ.get('MONGODB_URI')
+
+if not MONGODB_URI:
+    raise ImproperlyConfigured("MONGODB_URI environment variable is not set. Please set it in your Render dashboard.")
+
 DATABASES = {
     'default': {
        "ENGINE": "djongo",
         "NAME": os.environ.get('MONGODB_DB', 'Cluster0'),
         'CLIENT': {
-            "host": os.environ.get('MONGODB_URI'),
+            "host": MONGODB_URI,
         }
     }
 }
